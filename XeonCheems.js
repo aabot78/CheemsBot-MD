@@ -148,7 +148,8 @@ try {
 	
 //[Antilink]\\
 	if (isAntiLink && !isAdmins) 
-if (budy.match(/(https:\/)/gi))  {
+	let thislink = (budy.match('https://chat.whatsapp.com/' + await XeonBotInc.groupInviteCode(m.chat)))
+if (budy.match(/(https:\/)/gi) && (!thislink))  {
                if (!m.key.fromMe) {
                reply('*LINK DETECTED*\nWow, how naughty, this group has been installed with Antilink, OK?..,\nGood Bye To You..👋🏻')
                let sianj = m.sender
