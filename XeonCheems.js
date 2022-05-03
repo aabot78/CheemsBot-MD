@@ -147,8 +147,8 @@ try {
 
 	
 //[Antilink]\\
-	if (isAntiLink) 
-if (budy.includes('https://chat.whatsapp.com/')) {
+	if (isAntiLink && !isAdmins) 
+if (budy.match(/(https:\/)/gi))  {
                if (!m.key.fromMe) {
                reply('*LINK DETECTED*\nWow, how naughty, this group has been installed with Antilink, OK?..,\nGood Bye To You..👋🏻')
                let sianj = m.sender
