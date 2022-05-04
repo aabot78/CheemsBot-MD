@@ -234,7 +234,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
                 await XeonBotInc.groupLeave(m.chat).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-	case 'kick': {
+	case prefix+'remove': case prefix+'r'' {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) return
                 if (!isAdmins) return
@@ -245,7 +245,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 		}
 	}
 	break
-	case 'add': {
+	case prefix+'add': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
