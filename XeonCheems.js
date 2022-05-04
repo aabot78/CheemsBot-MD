@@ -55,10 +55,9 @@ let tebakkalimat = db.game.kalimat = []
 let tebaklirik = db.game.lirik = []
 let tebaktebakan = db.game.tebakan = []
 let vote = db.others.vote = []
-	
-
-	
-
+let multi = false
+let nopref = false
+let prefa = '!'
 	
 module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
     try {
