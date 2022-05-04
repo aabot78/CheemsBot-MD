@@ -31,7 +31,7 @@ global.ownernma = '🦄Dream Guy Xeon' //owner name
 global.packname = 'Cheems Bot' //sticker package name
 global.author = 'By Dream Guy Xeon' //sticker author name
 global.sessionName = 'session' //session name
-global.prefa = ['#','!','/',''] //prefix
+global.prefa = ['!'] //prefix
 global.sp = '⭔' //design
 global.mess = {
     success: 'Done ✓',
