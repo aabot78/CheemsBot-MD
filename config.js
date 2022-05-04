@@ -1,11 +1,3 @@
-//═══════[© 2022 Xeon Bot Inc.]════════\\
-
-//~you can re-upload but tag my channel
-//or put my channel link in the description.
-//~you can recode or copy the codes but give
-//credit.
-//~Thank you to LORD BUDDHA, ME AND MY 
-//FAMILY.
 
 //═══════[modules]════════\\
 
@@ -22,14 +14,14 @@ global.APIKeys = {
 }
 
 //═══════[modification]════════\\
-global.owner = ['916909137213','6283839980451'] //owner number, u can put multiple owner number, within quotations and seperated by comma.
-global.pemilik = ['916909137213'] //another owner number
-global.premium = ['916909137213'] //premium number
-global.pengguna = 'Xeon' //username
-global.botnma = 'Cheems Bot-MD' //bot name
-global.ownernma = '🦄Dream Guy Xeon' //owner name
-global.packname = 'Cheems Bot' //sticker package name
-global.author = 'By Dream Guy Xeon' //sticker author name
+global.owner = ['33758288938','46764534862'] //owner number, u can put multiple owner number, within quotations and seperated by comma.
+global.pemilik = ['46764534862'] //another owner number
+global.premium = ['46764534862'] //premium number
+global.pengguna = 'AA' //username
+global.botnma = 'AA' //bot name
+global.ownernma = 'AA' //owner name
+global.packname = 'AA' //sticker package name
+global.author = 'AA' //sticker author name
 global.sessionName = 'session' //session name
 global.prefa = ['!'] //prefix
 global.sp = '⭔' //design
