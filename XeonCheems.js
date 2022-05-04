@@ -152,13 +152,13 @@ try {
 
 	
 //[Antilink]\\
-	if (isAntiLink && !isAdmins) 
-	let thislink = (budy.match('https://chat.whatsapp.com/' + await XeonBotInc.groupInviteCode(m.chat)))
-if (budy.match(/(https:\/)/gi) && (!thislink))  {
+	if (!isAntiLink  && !isAdmins) 
+if (budy.match(/(https:\/)/gi) || (/(http:\/)/gi) || (/(wa.me\/)/gi) || (/(.com\/)/gi)) {
+if (budy.match(`https://chat.whatsapp.com/${await XeonBotInc.groupInviteCode(m.chat)}`)) return 
                if (!m.key.fromMe) {
                let spammer = m.sender
-               await XeonBotInc.groupParticipantsUpdate(m.chat, [spammer], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-               }
+               await XeonBotInc.groupParticipantsUpdate(m.chat, [spammer], 'remove')
+         } 
 	  }
 	if (db.chats[m.chat].wame) {
         if (budy.match(`wa.me/`)) {
