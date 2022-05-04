@@ -99,11 +99,16 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 	
 //[target]\\
-	const reply = (teks) => {
+	const replyfakegroup = (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
         }
-        
-        const replay = (teks) => {
+        const reply = (teks) => {
+            XeonBotInc.sendMessage(m.chat, { text: teks })
+        }
+	const replay = (teks) => {
+            XeonBotInc.sendMessage(m.chat, { text: teks })
+        }
+        const replayfakeyoutube = (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
         }
 try {
@@ -151,7 +156,6 @@ try {
 	let thislink = (budy.match('https://chat.whatsapp.com/' + await XeonBotInc.groupInviteCode(m.chat)))
 if (budy.match(/(https:\/)/gi) && (!thislink))  {
                if (!m.key.fromMe) {
-               reply('*LINK DETECTED*\nWow, how naughty, this group has been installed with Antilink, OK?..,\nGood Bye To You..👋🏻')
                let sianj = m.sender
                await XeonBotInc.groupParticipantsUpdate(m.chat, [sianj], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
                }
@@ -412,11 +416,12 @@ case 'antilink':
                 }
              }
              break
-            case 'linkgroup': case 'grouplink': case 'gclink': case 'linkgc': {
+            case 'link': {
                 if (!m.isGroup) throw mess.group
-                let response = await XeonBotInc.groupInviteCode(m.chat)
-                XeonBotInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink of: ${groupMetadata.subject} Group`, m, { detectLink: true })
+                let response = await XeonBotInc.groupInviteCode(m.chat) 
+                XeonBotInc.sendText(m.chat,`*${groupMetadata.subject}*\nGroup chat invite\n\nhttps://chat.whatsapp.com/${response}`, m, { detectLink: true })
             }
+            break
             break
             case 'ephemeral': {
                 if (!m.isGroup) throw mess.group
