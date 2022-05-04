@@ -218,6 +218,10 @@ if (budy.match(`https://chat.whatsapp.com/${await XeonBotInc.groupInviteCode(m.c
                 }
             }
             break
+           case 'rule': {
+              if (isAdmins)
+              reply (`*Group's Rules:*${readMore} \n${groupMetadata.desc}`)
+            }
             case 'join': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw 'Enter the group link!'
