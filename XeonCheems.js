@@ -82,8 +82,9 @@ module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
         const text = q = args.join(" ")
         const quoted = m.quoted ? m.quoted : m
         const mime = (quoted.msg || quoted).mimetype || ''
-	    const isMedia = /image|video|sticker|audio/.test(mime)
-	
+	const isMedia = /image|video|sticker|audio/.test(mime)
+	var more = String.fromCharCode(8206)
+	var readMore = more.repeat(4001)
 //[gc]\\
         const groupMetadata = m.isGroup ? await XeonBotInc.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
