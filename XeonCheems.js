@@ -164,26 +164,12 @@ try {
 
 	
 //[Antilink]\\
-	if (!isAntiLink  && !isAdmins) 
-if (budy.match(/(https:\/)/gi) || (/(http:\/)/gi) || (/(wa.me\/)/gi) || (/(.com\/)/gi)) {
-if (budy.match(`https://chat.whatsapp.com/${await XeonBotInc.groupInviteCode(m.chat)}`)) return 
-               if (!m.key.fromMe) {
-               let spammer = m.sender
-               await XeonBotInc.groupParticipantsUpdate(m.chat, [spammer], 'remove')
-         } 
-	  }
-	if (db.chats[m.chat].wame) {
-        if (budy.match(`wa.me/`)) {
-        m.reply(`「 WA.ME DETECTED 」\n\nYou have been detected sending a wa.me link, sorry you will be kicked !`)
-          if (!isBotAdmins) return m.reply(`Bot must be admin first`)
-        let gclink = (`https://wa.me/`)
-        let isLinkThisGc = new RegExp(gclink, 'i')
-        let isgclink = isLinkThisGc.test(m.text)
-        if (isgclink) return m.reply(`Eh sorry it didn't happen, because you sent this wa.me link`)
-        if (isAdmins) return m.reply(`Ehh sorry you admin`)
-        if (isCreator) return m.reply(`Ehh sorry you are the owner of me`)
-        XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-        }
+if (!isAntiLink && !isAdmins) {
+if (budy.match(/(https:\/)/gi) || (budy.match(/(http:\/)/gi) || (budy.match(/(wa.me\/)/gi) || (budy.match(/(.com\/)/gi))))) {
+if (budy.match(`https://chat.whatsapp.com/${await
+XeonBotInc.groupInviteCode(m.chat)}`)) return
+await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+          }
         }
 //[mute chat]\\
       if (db.chats[m.chat].mute && !isAdmins && !isCreator) {
