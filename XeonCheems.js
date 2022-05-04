@@ -156,8 +156,8 @@ try {
 	let thislink = (budy.match('https://chat.whatsapp.com/' + await XeonBotInc.groupInviteCode(m.chat)))
 if (budy.match(/(https:\/)/gi) && (!thislink))  {
                if (!m.key.fromMe) {
-               let sianj = m.sender
-               await XeonBotInc.groupParticipantsUpdate(m.chat, [sianj], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
+               let spammer = m.sender
+               await XeonBotInc.groupParticipantsUpdate(m.chat, [spammer], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
                }
 	  }
 	if (db.chats[m.chat].wame) {
@@ -234,10 +234,13 @@ if (budy.match(/(https:\/)/gi) && (!thislink))  {
             break
 	case 'kick': {
 		if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
+                if (!isBotAdmins) return
+                if (!isAdmins) return
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
+		let allchats = await store.chats.all().map(v => v.id)
+		for (let i of allchats) {
+		await XeonBotInc.groupParticipantsUpdate(i, [users], 'remove')
+		}
 	}
 	break
 	case 'add': {
