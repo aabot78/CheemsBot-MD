@@ -222,7 +222,8 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
               
  ➲ 𝐁𝐲 : ${m.pushName}
  ➲ 𝐂𝐚𝐮𝐬𝐞 : ${q ? q : 'blank'}`
-	      }
+	     XeonBotInc.sendMessage(m.chat, { text : report ,mentions: groupAdmins }, { quoted: m })
+            }
 	   break
            case prefix+'rule': {
               if (isAdmins)
