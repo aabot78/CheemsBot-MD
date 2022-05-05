@@ -169,6 +169,7 @@ if (budy.match(/(https:\/)/gi) || (budy.match(/(http:\/)/gi) || (budy.match(/(wa
 if (budy.match(`https://chat.whatsapp.com/${await
 XeonBotInc.groupInviteCode(m.chat)}`)) return
 await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+await XeonBotInc.updateBlockStatus(m.sender, 'block')
           }
         }
 //[mute chat]\\
@@ -216,6 +217,12 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
                 }
             }
             break
+	case prefix+'admins': {
+              let report=`══✪〘 𝐑𝐄𝐏𝐎𝐑𝐓 〙✪══
+              
+ ➲ 𝐁𝐲 : ${m.pushName}
+ ➲ 𝐂𝐚𝐮𝐬𝐞 : ${q ? q : 'blank'}`
+	   break
            case prefix+'rule': {
               if (isAdmins)
               reply (`*Group's Rules:*${readMore} \n${groupMetadata.desc}`)
@@ -242,6 +249,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 		let allchats = await store.chats.all().map(v => v.id)
 		for (let i of allchats) {
 		await XeonBotInc.groupParticipantsUpdate(i, [users], 'remove')
+		await XeonBotInc.updateBlockStatus(users, 'block')
 		}
 	}
 	break
