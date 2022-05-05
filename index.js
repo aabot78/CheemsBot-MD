@@ -59,7 +59,7 @@ async function startXeonBotInc() {
         }
     })
 
-    XeonBotInc.ev.on('group-participants.update', async (anu) => {
+    /*XeonBotInc.ev.on('group-participants.update', async (anu) => {
         console.log(anu)
         try {
             let metadata = await XeonBotInc.groupMetadata(anu.id)
@@ -80,7 +80,7 @@ async function startXeonBotInc() {
                 }
                 
 //═══════[welcome]════════\\
-/*let nama = await XeonBotInc.getName(num)
+let nama = await XeonBotInc.getName(num)
 memb = metadata.participants.length
 
 Kon = await getBuffer(`https://hardianto.xyz/api/welcome3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/92b62466c2ef493a72072.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
@@ -96,12 +96,12 @@ Welcome To Our Comfortable Happy😋, Sometimes Loud😜, Usually Messy🤥, Ful
                     XeonBotInc.sendMessage(anu.id, { image: Tol, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Left ${metadata.subject}
 
 I'm not sure if it was a goodbye charm, but it was fun while it lasted 😌✨` })
-                }*/
+                }
             }
         } catch (err) {
             console.log(err)
         }
-    })
+    })*/
 	
 //═══════[setting]════════\\
     XeonBotInc.decodeJid = (jid) => {
