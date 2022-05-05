@@ -235,7 +235,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
             break
 	case prefix+'remove': case prefix+'r': {
-		if (!m.isGroup) throw mess.group
+		if (!m.isGroup) return
                 if (!isBotAdmins) return
                 if (!isAdmins) return
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -246,21 +246,21 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 	}
 	break
     case prefix+'add': case prefix+'a': {
-		if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
+		if (!m.isGroup) return
+                if (!isBotAdmins) return
+                if (!isAdmins) return
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'add')
 	}
 	break
     case prefix+'block': {
-		if (!isCreator) throw mess.owner
+		if (!isCreator) return
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.updateBlockStatus(users, 'block')
 	}
 	break
     case prefix+'unblock': {
-		if (!isCreator) throw mess.owner
+		if (!isCreator) return
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.updateBlockStatus(users, 'unblock')
 	}
@@ -313,12 +313,13 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 					break 
 
     case prefix+'link': {
-                if (!m.isGroup) throw mess.group
+                if (!m.isGroup) return
                 let response = await XeonBotInc.groupInviteCode(m.chat) 
                 XeonBotInc.sendText(m.chat,`*${groupMetadata.subject}*\nGroup chat invite\n\nhttps://chat.whatsapp.com/${response}`, m, { detectLink: true })
             }
             break
-    case prefix+'list': {
+    case prefix+'list': case prefix+'id': {
+	    if (!isCreator) return
                  let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
                  let teks = `⬣ *GROUP CHAT LIST*\n\nTotal Group : ${anu.length} Group\n\n`
                  for (let i of anu) {
@@ -331,7 +332,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
     case prefix+'listonline': case prefix+'online': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
-                    XeonBotInc.sendText(m.chat, 'Online List:\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
+                    XeonBotInc.sendText(m.chat, 'Online List:${readMore}\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
     case prefix+'sticker': case 's':  {
@@ -364,6 +365,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             }
             break
     case prefix+'test': case prefix+'speed':  {
+	    if (!isCreator) return
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
                     cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
