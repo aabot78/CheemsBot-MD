@@ -223,23 +223,15 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
         let ingfo = `*G R O U P  I N F O*\n\n*Name :* ${groupName}\n*ID Group :* ${m.chat}\n*Made :* ${moment(`${groupMetadata.creation}` * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n*Group Owner:* @${groupMetadata.owner.split('@')[0]}\n*Number Of Admins :* ${groupAdmins.length}\n*Number Of Participants :* ${participants.length}\n*Desc :* \n${groupMetadata.desc}`
         XeonBotInc.sendMessage(m.chat, {text: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
     break
-    case prefix+'tagall': case prefix+'tag': {
-                if (!m.isGroup) return
+                case 'tag': {
+	        if (!m.isGroup) return
                 if (!isBotAdmins) return
                 if (!isAdmins) return
-                let teks = `══✪〘 *👥 Tag All* 〙✪══
- 
-                ➲ *Message : ${q ? q : 'blank'}*\n\n`
-                for (let mem of participants) {
-                teks += `⭔ @${mem.id.split('@')[0]}\n`
-                }
-                XeonBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
-                }
-                break
-                case 'hidetag': {
-            if (!m.isGroup) throw mess.group
-            if (!isAdmins) throw mess.admin
-            XeonBotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
+			let tagall=`*《《《TAG》》》*
+
+*By :* ${m.pushName}
+*Cause :* ${q ? q : 'blank'}`
+            XeonBotInc.sendMessage(m.chat, { text : tagall , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
     case prefix+'antilink':
