@@ -189,7 +189,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
             console.log('Reseted Limit')
         }, {
             scheduled: true,
-            timezone: "Paris/Europe"
+            timezone: "Europe/Paris"
         })
 	    
         
