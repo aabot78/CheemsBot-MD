@@ -272,7 +272,7 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
     case prefix+'listonline': case prefix+'online': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
-                    XeonBotInc.sendText(m.chat, 'Online List:${readMore}\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
+                    XeonBotInc.sendText(m.chat, 'Online List:\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
     /*case prefix+'sticker': case prefix+'s':  {
