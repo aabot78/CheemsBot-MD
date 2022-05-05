@@ -1,11 +1,6 @@
 //[© 2022 Xeon Bot Inc.]\\
 
-//~you can re-upload but tag my channel
-//or put my channel link in the description.
-//~you can recode or copy the codes but give
-//credit.
-//~Thank you to LORD BUDDHA, ME AND MY 
-//FAMILY.
+
 
 //[modules]\\
 require('./config')
@@ -24,7 +19,6 @@ const { performance } = require('perf_hooks')
 const { Primbon } = require('scrape-primbon')
 const primbon = new Primbon()
 const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('./lib/myfunc')
-let { addLevelingId, addLevelingLevel, addLevelingXp, getLevelingId, getLevelingLevel, getLevelingXp } = require("./lib/lvlfunction")
 const speedofbot = require("performance-now")
 
 //[thumb]\\
@@ -183,43 +177,11 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
 	setInterval(() => {
             fs.writeFileSync('./src/database.json', JSON.stringify(global.db, null, 2))
         }, 60 * 1000)
-
-//[reset limit every 12hrs]\\
-        let cron = require('node-cron')
-        cron.schedule('00 12 * * *', () => {
-            let user = Object.keys(global.db.users)
-            let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
-            for (let jid of user) global.db.users[jid].limit = limitUser
-            console.log('Reseted Limit')
-        }, {
-            scheduled: true,
-            timezone: "Europe/Paris"
-        })
 	    
         
 
         switch(command) {
 	    
-            case 'chat': {
-                if (!isCreator) throw mess.owner
-                if (!q) throw 'Option : 1. mute\n2. unmute\n3. archive\n4. unarchive\n5. read\n6. unread\n7. delete'
-                if (args[0] === 'mute') {
-                    XeonBotInc.chatModify({ mute: 'Infinity' }, m.chat, []).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'unmute') {
-                    XeonBotInc.chatModify({ mute: null }, m.chat, []).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'archive') {
-                    XeonBotInc.chatModify({  archive: true }, m.chat, []).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'unarchive') {
-                    XeonBotInc.chatModify({ archive: false }, m.chat, []).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'read') {
-                    XeonBotInc.chatModify({ markRead: true }, m.chat, []).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'unread') {
-                    XeonBotInc.chatModify({ markRead: false }, m.chat, []).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'delete') {
-                    XeonBotInc.chatModify({ clear: { message: { id: m.quoted.id, fromMe: true }} }, m.chat, []).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-                }
-            }
-            break
 	case prefix+'admins': {
               let report=`*《《《REPORT》》》*
 
