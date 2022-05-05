@@ -220,7 +220,7 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
         let ingfo = `*G R O U P  I N F O*\n\n*Name :* ${groupName}\n*ID Group :* ${m.chat}\n*Made :* ${moment(`${groupMetadata.creation}` * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n*Group Owner:* @${groupMetadata.owner.split('@')[0]}\n*Number Of Admins :* ${groupAdmins.length}\n*Number Of Participants :* ${participants.length}\n*Desc :* \n${groupMetadata.desc}`
         XeonBotInc.sendMessage(m.chat, {text: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
     break
-                case 'tag': {
+                case prefix+'tag': {
 	        if (!m.isGroup) return
                 if (!isBotAdmins) return
                 if (!isAdmins) return
