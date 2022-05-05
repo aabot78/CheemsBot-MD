@@ -117,32 +117,7 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
         const replayfakeyoutube = (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
         }
-try {
-            let isNumber = x => typeof x === 'number' && !isNaN(x)
-            let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
-            let user = global.db.users[m.sender]
-            if (typeof user !== 'object') global.db.users[m.sender] = {}
-            if (user) {
-                if (!isNumber(user.afkTime)) user.afkTime = -1
-                if (!('afkReason' in user)) user.afkReason = ''
-                if (!isNumber(user.limit)) user.limit = limitUser
-            } else global.db.users[m.sender] = {
-                afkTime: -1,
-                afkReason: '',
-                limit: limitUser,
-            }
-            let chats = global.db.chats[m.chat]
-                if (typeof chats !== 'object') global.db.chats[m.chat] = {}
-                if (chats) {
-                if (!('mute' in chats)) chats.mute = false
-                if (!('wame' in chats)) chats.wame = false
-             } else global.db.chats[m.chat] = {
-                mute: false,
-                wame: false,
-        }
-        } catch (err) {
-            console.error(err)
-        }
+
 	    
 
 //[public/self]\\
