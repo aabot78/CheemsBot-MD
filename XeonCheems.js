@@ -220,7 +220,7 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
 	case prefix+'admins': {
               let report=`*《《《REPORT》》》*
 
-*By :*${pushName}
+*By :*${m.pushName}
 *Cause :*${q ? q : 'blank'}`
 	     XeonBotInc.sendMessage(m.chat, { text : report ,mentions: groupAdmins }, { quoted: m })
             }
