@@ -270,7 +270,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
          if (!isBotAdmins) return
          if (!isAdmins) return
         let ingfo = `*G R O U P  I N F O*\n\n*Name :* ${groupName}\n*ID Group :* ${m.chat}\n*Made :* ${moment(`${groupMetadata.creation}` * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n*Group Owner:* @${groupMetadata.owner.split('@')[0]}\n*Number Of Admins :* ${groupAdmins.length}\n*Number Of Participants :* ${participants.length}\n*Desc :* \n${groupMetadata.desc}`
-        XeonBotInc.sendMessage(m.chat, { image: text: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
+        XeonBotInc.sendMessage(m.chat, {text: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
     break
     case prefix+'tagall': case 'tag': {
                 if (!m.isGroup) return
