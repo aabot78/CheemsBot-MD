@@ -272,7 +272,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         let ingfo = `*G R O U P  I N F O*\n\n*Name :* ${groupName}\n*ID Group :* ${m.chat}\n*Made :* ${moment(`${groupMetadata.creation}` * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n*Group Owner:* @${groupMetadata.owner.split('@')[0]}\n*Number Of Admins :* ${groupAdmins.length}\n*Number Of Participants :* ${participants.length}\n*Desc :* \n${groupMetadata.desc}`
         XeonBotInc.sendMessage(m.chat, {text: ingfo, mentions: [groupMetadata.owner] }, { quoted: m})
     break
-    case prefix+'tagall': case 'tag': {
+    case prefix+'tagall': case prefix+'tag': {
                 if (!m.isGroup) return
                 if (!isBotAdmins) return
                 if (!isAdmins) return
@@ -328,7 +328,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
                  XeonBotInc.sendTextWithMentions(m.chat, teks, m)
              }
              break
-    case prefix+'listonline': prefix+case 'online': {
+    case prefix+'listonline': case prefix+'online': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
                     XeonBotInc.sendText(m.chat, 'Online List:\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
@@ -363,7 +363,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
                 reply('Successfully Changed To Self Usage')
             }
             break
-    case prefix+'test': case 'speed':  {
+    case prefix+'test': case prefix+'speed':  {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
                     cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
