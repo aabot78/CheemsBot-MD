@@ -346,7 +346,7 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
                     XeonBotInc.sendText(m.chat, 'Online List:${readMore}\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
-    case prefix+'sticker': case 's':  {
+    case prefix+'sticker': case prefix+'s':  {
             if (!quoted) throw `Reply Video/Image With Caption ${prefix + command}`
             replay(mess.wait)
                     if (/image/.test(mime)) {
