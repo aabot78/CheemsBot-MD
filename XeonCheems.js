@@ -227,8 +227,9 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
               if (isAdmins)
               reply (`*Group's Rules:*${readMore} \n${groupMetadata.desc}`)
             }
+		break
             case prefix+'join': {
-                if (!isCreator) throw mess.owner
+                if (!isCreator) return
                 if (!text) throw 'Enter the group link!'
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
                 replay(mess.wait)
