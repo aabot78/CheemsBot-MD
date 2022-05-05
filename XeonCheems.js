@@ -275,7 +275,7 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
                     XeonBotInc.sendText(m.chat, 'Online List:${readMore}\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
-    case prefix+'sticker': case prefix+'s':  {
+    /*case prefix+'sticker': case prefix+'s':  {
             if (!quoted) throw `Reply Video/Image With Caption ${prefix + command}`
                     if (/image/.test(mime)) {
                 let media = await quoted.download()
@@ -290,7 +290,7 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
                 throw `Send Image/Video With Caption ${prefix + command}\nVideo Duration 1-9 Seconds`
                 }
             }
-            break
+            break*/
     case prefix+'public': {
                 if (!isCreator) return
                 XeonBotInc.public = true
