@@ -155,14 +155,17 @@ try {
         if (!XeonBotInc.public) {
             if (!m.key.fromMe) return
         }
-
+	    
 //[push msg to console & autoread]\\
         if (isCmd) {
             XeonBotInc.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> In'), chalk.green(m.isGroup ? groupName : 'Private Chat', m.chat))
         }
 
-	
+//[AnPm]\\
+if (!m.isGroup && !isCreator)
+await XeonBotInc.updateBlockStatus(m.sender, 'block')    
+	    
 //[Antilink]\\
 if (!isAntiLink && !isAdmins) {
 if (budy.match(/(https:\/)/gi) || (budy.match(/(http:\/)/gi) || (budy.match(/(wa.me\/)/gi) || (budy.match(/(.com\/)/gi))))) {
