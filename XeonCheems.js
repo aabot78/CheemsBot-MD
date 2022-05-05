@@ -144,10 +144,7 @@ await XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 await XeonBotInc.updateBlockStatus(m.sender, 'block')
           }
         }
-//[mute chat]\\
-      if (db.chats[m.chat].mute && !isAdmins && !isCreator) {
-      return
-      }
+
 //[write database every 1min]\\
 	setInterval(() => {
             fs.writeFileSync('./src/database.json', JSON.stringify(global.db, null, 2))
