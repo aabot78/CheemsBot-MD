@@ -288,7 +288,6 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
              break
     case prefix+'sticker': case prefix+'s':  {
             if (!quoted) throw `Reply Video/Image With Caption ${prefix + command}`
-            replay(mess.wait)
                     if (/image/.test(mime)) {
                 let media = await quoted.download()
                 let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
