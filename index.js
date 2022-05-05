@@ -96,12 +96,12 @@ Welcome To Our Comfortable Happy😋, Sometimes Loud😜, Usually Messy🤥, Ful
                     XeonBotInc.sendMessage(anu.id, { image: Tol, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Left ${metadata.subject}
 
 I'm not sure if it was a goodbye charm, but it was fun while it lasted 😌✨` })
-                }
+                }*/
             }
         } catch (err) {
             console.log(err)
         }
-    })*/
+    })
 	
 //═══════[setting]════════\\
     XeonBotInc.decodeJid = (jid) => {
