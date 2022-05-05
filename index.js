@@ -1,11 +1,6 @@
 //═══════[© 2022 Xeon Bot Inc.]════════\\
 
-//~you can re-upload but tag my channel
-//or put my channel link in the description.
-//~you can recode or copy the codes but give
-//credit.
-//~Thank you to LORD BUDDHA, ME AND MY 
-//FAMILY.
+
 
 //═══════[modules]════════\\
 require('./config')
@@ -40,10 +35,10 @@ async function startXeonBotInc() {
     XeonBotInc.ws.on('CB:call', async (json) => {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
-    let pa7rick = await XeonBotInc.sendContact(callerId, global.owner)
-    XeonBotInc.sendMessage(callerId, { text: `Automatic block system!\nDon't call bot!\nPlease contact the owner to open !`}, { quoted : pa7rick })
+    /*let pa7rick = await XeonBotInc.sendContact(callerId, global.owner)
+    XeonBotInc.sendMessage(callerId, { text: `Automatic block system!\nDon't call bot!\nPlease contact the owner to open !`}, { quoted : pa7rick })*/
     XeonBotInc.sendMessage(`916909137213@s.whatsapp.net`, {text: `*Report Bot:* Someone Called Bot`})
-    await sleep(8000)
+    await sleep(5000)
     await XeonBotInc.updateBlockStatus(callerId, "block")
     }
     })
@@ -85,7 +80,7 @@ async function startXeonBotInc() {
                 }
                 
 //═══════[welcome]════════\\
-let nama = await XeonBotInc.getName(num)
+/*let nama = await XeonBotInc.getName(num)
 memb = metadata.participants.length
 
 Kon = await getBuffer(`https://hardianto.xyz/api/welcome3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/92b62466c2ef493a72072.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
@@ -106,7 +101,7 @@ I'm not sure if it was a goodbye charm, but it was fun while it lasted 😌✨` 
         } catch (err) {
             console.log(err)
         }
-    })
+    })*/
 	
 //═══════[setting]════════\\
     XeonBotInc.decodeJid = (jid) => {
