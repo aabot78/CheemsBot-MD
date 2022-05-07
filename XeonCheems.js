@@ -189,7 +189,6 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		let allchats = await store.chats.all().map(v => v.id)
 		for (let i of allchats) {
-			await sleep (2000)
 		await XeonBotInc.groupParticipantsUpdate(i, [users], 'remove')
 		await XeonBotInc.updateBlockStatus(users, 'block')
 		}
