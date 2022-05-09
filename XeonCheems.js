@@ -258,7 +258,7 @@ await XeonBotInc.updateBlockStatus(m.sender, 'block')
                 XeonBotInc.sendText(m.chat,`*${groupMetadata.subject}*\nGroup chat invite\n\nhttps://chat.whatsapp.com/${response}`, m, { detectLink: true })
             }
             break
-    ccase prefix+'list': case prefix+'id': {
+    case prefix+'list': case prefix+'id': {
 	    if (!isCreator) return
                  let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
                  let teks = `⬣ *GROUP CHAT LIST*: ${anu.length}\n\n`
